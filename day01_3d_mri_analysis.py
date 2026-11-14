@@ -11,7 +11,8 @@ brain_mri_3d[3, 4:7, 4:7] = np.random.randint(220, 250, size=(3, 3))
 print(f"ابعاد کل تنسور اسکن سه‌بعدی: {brain_mri_3d.shape}")
 
 # 3. بررسی تک‌تک برش‌ها برای پیدا کردن تومور با حد آستانه (Threshold = 200)
-for slice_idx in range(brain_mri_3d.shape):
+# نکته اصلاحی: با [0] اولین عدد ابعاد (یعنی تعداد برش‌ها = 5) را به range می‌دهیم
+for slice_idx in range(brain_mri_3d.shape[0]):
     current_slice = brain_mri_3d[slice_idx]
     
     # تشخیص پیکسل‌های مشکوک بالای ۲۰۰
